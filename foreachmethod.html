@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .contain{
+        width: 100%;
+        height: 100vh;
+        display: flex;
+        justify-content: center;
+        align-content: center;
+        align-items: center;
+        border: solid;
+
+      }
+      .btn {
+        padding: 10px;
+      }
+      .card {
+        height: 180px;
+        width: 180px;
+        border: 1px solid black;
+        margin: 10px 0;
+      }
+      </style>
+  </head>
+  <body>
+     <div class="contain">
+      <p>
+        Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, assumenda! Ipsa vel odit inventore amet sequi praesentium voluptas ipsam. Eum necessitatibus deleniti officia dignissimos eaque.
+      </p>
+        <img src="" alt="">
+        <!-- <li>HOme</li>
+        <li>Firm</li> -->
+        <button onclick="turnOn()">Dark Mode</button>
+    </div>
+    <button class="btn" onclick="getRecords(student)">Show Data</button>
+    <!-- <div id="cards"></div> -->
+
+    <script>
+      // Created dataset 
+          const student=[
+
+              {name:"Ruchika",age:21,city:"delhi"},
+              {name:"Ritika",age:21,city:"delhi"},
+              {name:"Arpita",age:21,city:"delhi"},
+              {name:"Sapna",age:18,city:"nashik"},
+              {name:"Zakki",age:18,city:"Bhiwandi"},
+              {name:"Shubham",age:18,city:"Titwala"},
+              {name:"Ankit",age:18,city:"Diva"},
+              {name:"Vinay",age:18,city:"Thane"},
+              {name:"Aman",age:18,city:"Mumbra"},
+          ]
+          // first condition where the first value is true it reflect the dataset
+          let flag=0
+          function getRecords(student){
+
+              if(flag===0){
+                let card =document.getElementById("cards");
+                card.style.display="block";
+                // data to be print in the output
+                 student.slice(0,5).forEach(item=>{
+                let div=document.createElement("div");
+                // we assign or add a class in the div using js
+                div.setAttribute("class","card")
+                div.innerHTML=`<p>${item.name}</p><p>${item.age}</p><p>${item.city}</p>`;
+                // For adding a this in the parent
+                card.appendChild(div);
+
+                });
+                flag=1;
+            }
+            else{
+               let card=document.getElementById("cards")
+               card.innerHTML="";
+                flag=0;
+            };
+        }
+
+
+
+
+    let isblack = false;
+    function turnOn(){
+
+        document.body.style.backgroundColor = isblack ? "black" : "white";
+        document.body.style.color = isblack ? "white" : "black";
+        isblack = !isblack
+
+    }   
+
+      //    import _ from 'lodash';
+
+      // let numbers = [[1,2,3],[4,5,6],[7,8,9],[10]];
+      // // console.log(numbers)
+      // let flattenNumbers = _ .flattenDeep(numbers);
+      // console.log(flattenNumbers);
+
+
+
+
+
+
+
+
+         
+    </script>
+  </body>
+</html>
